@@ -26,6 +26,7 @@ pipeline{
            			 }
         	}
 		stage('Deploy') {
+			steps{
   			input "Deploy?"
   			milestone()
   			lock('Deployment') {
@@ -33,6 +34,7 @@ pipeline{
       				echo "Deploying"
     			     }
  			}
+		    }
 		}
 
 		stage('READ'){
