@@ -19,6 +19,12 @@ pipeline{
 			     sh 'echo $BUILD_NUMBER >> build_number'
 			}
 		}
+		
+		stage('Sanity check') {
+            			steps {
+                			input "Does the staging environment look ok?"
+           			 }
+        	}
 
 		stage('READ'){
 		        steps{
