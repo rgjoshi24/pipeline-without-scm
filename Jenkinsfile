@@ -28,7 +28,6 @@ pipeline{
 		stage('Deploy') {
 			steps{
   			input "Deploy?"
-  			milestone()
   			lock('Deployment') {
     			node {
       				echo "Deploying"
