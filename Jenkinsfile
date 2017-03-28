@@ -25,6 +25,13 @@ pipeline{
                 			input "Does the staging environment look ok?"
            			 }
         	}
+		
+		stage('Toll Gate'){
+			steps{
+				def doesJavaRock = input(message: 'Do you like Java?', ok: 'Yes',parameters: [booleanParam(defaultValue: true,description: 'If you like Java, just push the button',name: 'Yes?')])
+				echo "Java rocks?:" + doesJavaRock
+			}
+		}
 		stage('READ'){
 		        steps{
 			     sh 'cat build_number'
