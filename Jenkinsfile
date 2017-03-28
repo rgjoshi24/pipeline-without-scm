@@ -25,17 +25,6 @@ pipeline{
                 			input "Does the staging environment look ok?"
            			 }
         	}
-		stage('Deploy') {
-			steps{
-  			input "Deploy?"
-  			lock('Deployment') {
-    			node {
-      				echo "Deploying"
-    			     }
- 			}
-		    }
-		}
-
 		stage('READ'){
 		        steps{
 			     sh 'cat build_number'
